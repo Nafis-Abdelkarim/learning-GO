@@ -174,27 +174,27 @@ func (*ListPersonsRequest) Descriptor() ([]byte, []int) {
 	return file_addressbook_proto_rawDescGZIP(), []int{1}
 }
 
-type ListPersonsResponse struct {
+type ListPersonsResponses struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Person        []*Person              `protobuf:"bytes,1,rep,name=person,proto3" json:"person,omitempty"`
+	Person        []*Person              `protobuf:"bytes,1,rep,name=Person,proto3" json:"Person,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ListPersonsResponse) Reset() {
-	*x = ListPersonsResponse{}
+func (x *ListPersonsResponses) Reset() {
+	*x = ListPersonsResponses{}
 	mi := &file_addressbook_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ListPersonsResponse) String() string {
+func (x *ListPersonsResponses) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ListPersonsResponse) ProtoMessage() {}
+func (*ListPersonsResponses) ProtoMessage() {}
 
-func (x *ListPersonsResponse) ProtoReflect() protoreflect.Message {
+func (x *ListPersonsResponses) ProtoReflect() protoreflect.Message {
 	mi := &file_addressbook_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -206,12 +206,12 @@ func (x *ListPersonsResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ListPersonsResponse.ProtoReflect.Descriptor instead.
-func (*ListPersonsResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use ListPersonsResponses.ProtoReflect.Descriptor instead.
+func (*ListPersonsResponses) Descriptor() ([]byte, []int) {
 	return file_addressbook_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *ListPersonsResponse) GetPerson() []*Person {
+func (x *ListPersonsResponses) GetPerson() []*Person {
 	if x != nil {
 		return x.Person
 	}
@@ -288,11 +288,11 @@ const file_addressbook_proto_rawDesc = "" +
 	"\x06MOBILE\x10\x00\x12\b\n" +
 	"\x04HOME\x10\x01\x12\b\n" +
 	"\x04WORK\x10\x02\"\x14\n" +
-	"\x12ListPersonsRequest\"B\n" +
-	"\x13ListPersonsResponse\x12+\n" +
-	"\x06person\x18\x01 \x03(\v2\x13.addressbook.PersonR\x06person2f\n" +
-	"\x12AddressBookService\x12P\n" +
-	"\vListPersons\x12\x1f.addressbook.ListPersonsRequest\x1a .addressbook.ListPersonsResponseB\x14Z\x12server/addressbookb\x06proto3"
+	"\x12ListPersonsRequest\"C\n" +
+	"\x14ListPersonsResponses\x12+\n" +
+	"\x06Person\x18\x01 \x03(\v2\x13.addressbook.PersonR\x06Person2g\n" +
+	"\x12AddressBookService\x12Q\n" +
+	"\vListPersons\x12\x1f.addressbook.ListPersonsRequest\x1a!.addressbook.ListPersonsResponsesB\x14Z\x12server/addressbookb\x06proto3"
 
 var (
 	file_addressbook_proto_rawDescOnce sync.Once
@@ -309,18 +309,18 @@ func file_addressbook_proto_rawDescGZIP() []byte {
 var file_addressbook_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_addressbook_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_addressbook_proto_goTypes = []any{
-	(Person_PhoneType)(0),       // 0: addressbook.Person.PhoneType
-	(*Person)(nil),              // 1: addressbook.Person
-	(*ListPersonsRequest)(nil),  // 2: addressbook.ListPersonsRequest
-	(*ListPersonsResponse)(nil), // 3: addressbook.ListPersonsResponse
-	(*Person_PhoneNumber)(nil),  // 4: addressbook.Person.PhoneNumber
+	(Person_PhoneType)(0),        // 0: addressbook.Person.PhoneType
+	(*Person)(nil),               // 1: addressbook.Person
+	(*ListPersonsRequest)(nil),   // 2: addressbook.ListPersonsRequest
+	(*ListPersonsResponses)(nil), // 3: addressbook.ListPersonsResponses
+	(*Person_PhoneNumber)(nil),   // 4: addressbook.Person.PhoneNumber
 }
 var file_addressbook_proto_depIdxs = []int32{
 	4, // 0: addressbook.Person.phones:type_name -> addressbook.Person.PhoneNumber
-	1, // 1: addressbook.ListPersonsResponse.person:type_name -> addressbook.Person
+	1, // 1: addressbook.ListPersonsResponses.Person:type_name -> addressbook.Person
 	0, // 2: addressbook.Person.PhoneNumber.type:type_name -> addressbook.Person.PhoneType
 	2, // 3: addressbook.AddressBookService.ListPersons:input_type -> addressbook.ListPersonsRequest
-	3, // 4: addressbook.AddressBookService.ListPersons:output_type -> addressbook.ListPersonsResponse
+	3, // 4: addressbook.AddressBookService.ListPersons:output_type -> addressbook.ListPersonsResponses
 	4, // [4:5] is the sub-list for method output_type
 	3, // [3:4] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name

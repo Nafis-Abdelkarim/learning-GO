@@ -1,18 +1,20 @@
 package server
 
 import (
-	pb "/grpc/server/addressbook"
 	"context"
 	"log"
+
+	pb "grpc/server/addressbook"
 )
 
-type addressbookServer struct{}
+type addressbookServer struct {
+}
 
-func NewAddressBookServer() *addressbookServer {
+func NewAddressbookServer() *addressbookServer {
 	return &addressbookServer{}
 }
 
-func (s *addressbookServer) ListPersons(ctx context.Context, req *pb.ListPersonsRequest) (*pb.ListPersonsResponse, error) {
-	log.Println("Listing persons...")
-	return &pb.ListPersonsResponse{}, nil
+func (s *addressbookServer) ListPersons(context context.Context, req *pb.ListPersonsRequest) (*pb.ListPersonsResponses, error) {
+	log.Println("Listing perons...")
+	return &pb.ListPersonsResponses{}, nil
 }

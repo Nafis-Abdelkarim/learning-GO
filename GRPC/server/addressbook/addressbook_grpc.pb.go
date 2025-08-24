@@ -26,7 +26,7 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type AddressBookServiceClient interface {
-	ListPersons(ctx context.Context, in *ListPersonsRequest, opts ...grpc.CallOption) (*ListPersonsResponse, error)
+	ListPersons(ctx context.Context, in *ListPersonsRequest, opts ...grpc.CallOption) (*ListPersonsResponses, error)
 }
 
 type addressBookServiceClient struct {
@@ -37,9 +37,9 @@ func NewAddressBookServiceClient(cc grpc.ClientConnInterface) AddressBookService
 	return &addressBookServiceClient{cc}
 }
 
-func (c *addressBookServiceClient) ListPersons(ctx context.Context, in *ListPersonsRequest, opts ...grpc.CallOption) (*ListPersonsResponse, error) {
+func (c *addressBookServiceClient) ListPersons(ctx context.Context, in *ListPersonsRequest, opts ...grpc.CallOption) (*ListPersonsResponses, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ListPersonsResponse)
+	out := new(ListPersonsResponses)
 	err := c.cc.Invoke(ctx, AddressBookService_ListPersons_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -51,7 +51,7 @@ func (c *addressBookServiceClient) ListPersons(ctx context.Context, in *ListPers
 // All implementations must embed UnimplementedAddressBookServiceServer
 // for forward compatibility.
 type AddressBookServiceServer interface {
-	ListPersons(context.Context, *ListPersonsRequest) (*ListPersonsResponse, error)
+	ListPersons(context.Context, *ListPersonsRequest) (*ListPersonsResponses, error)
 	mustEmbedUnimplementedAddressBookServiceServer()
 }
 
@@ -62,7 +62,7 @@ type AddressBookServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedAddressBookServiceServer struct{}
 
-func (UnimplementedAddressBookServiceServer) ListPersons(context.Context, *ListPersonsRequest) (*ListPersonsResponse, error) {
+func (UnimplementedAddressBookServiceServer) ListPersons(context.Context, *ListPersonsRequest) (*ListPersonsResponses, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListPersons not implemented")
 }
 func (UnimplementedAddressBookServiceServer) mustEmbedUnimplementedAddressBookServiceServer() {}
